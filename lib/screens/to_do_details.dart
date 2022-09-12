@@ -103,19 +103,19 @@ class _ToDoDetailState extends State<ToDoDetail> {
                   heightBox(10.h),
                 TextField(
                     controller: dateController,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                         icon: Icon(Icons.calendar_today),
                         //icon of text field
-                        labelText: "Enter Date" //label text of field
+                        labelText: "Enter Date"
                         ),
                     readOnly: true,
-                    //set it true, so that user will not able to edit text
+
                     onTap: () async {
                       DateTime? pickedDate = await showDatePicker(
                           context: context,
                           initialDate: DateTime.now(),
-                          firstDate: DateTime(1950),
-                          //DateTime.now() - not to allow to choose before today.
+                          firstDate:DateTime.now(),
+
                           lastDate: DateTime(2100));
 
                       if (pickedDate != null) {
@@ -124,7 +124,7 @@ class _ToDoDetailState extends State<ToDoDetail> {
                         setState(() {
                           todo!.date = formattedDate;
                           dateController.text =
-                              formattedDate; //set output date to TextField value.
+                              formattedDate;
                         });
                       } else {}
                     },
